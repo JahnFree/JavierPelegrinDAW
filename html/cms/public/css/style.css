@@ -1,0 +1,26 @@
+body{
+    margin: auto;
+    text-align:center;
+}
+
+.login{
+    border:1px solid black;
+    padding: 10px 10px;
+    width: 100%;
+    margin-top: 100px;
+}
+
+.contenedor{
+    margin: auto;
+    text-align:center;
+    width: 30%;
+}
+
+.rojo{
+    color:red;
+}
+
+.uc{
+  padding: 10px 10px;
+  margin-bottom: 10px;
+}
