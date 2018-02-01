@@ -10,12 +10,12 @@
             <h4><?php echo $datos->mensaje ?></h4>
             <form method="POST">
                 <div>
-                    <input class="uc" type="text" name="usuario" placeholder="usuario">
+                    <input class="uc" type="text" name="usuario" placeholder="Usuario">
                 </div>
                 <div>
-                    <input class="uc" type="password" name="clave" placeholder="contraseña">
+                    <input class="uc" type="password" name="clave" placeholder="Contraseña">
                 </div>
-                <button name="acceso">acceder</button>
+                <button class="btn" name="acceso">Acceder</button>
             </form>
         </div>
     </div>

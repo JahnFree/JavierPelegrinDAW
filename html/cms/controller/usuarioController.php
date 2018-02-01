@@ -21,7 +21,7 @@ class usuarioController {
         }else{
            $vista = "acceso"; 
         }             
-        $datos->mensaje = "Por favor, introduce usuario y clave";
+        $datos->mensaje = "Por favor, introduce usuario y contraseña";
         if(isset($_POST['acceso'])){
             $usuario = filter_input(INPUT_POST, 'usuario', FILTER_SANITIZE_STRING);
             $clave = filter_input(INPUT_POST, 'clave', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
