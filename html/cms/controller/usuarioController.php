@@ -49,16 +49,25 @@ class usuarioController {
         }
     }
     
-    public function index(){
-               
-        $resultado = $this->db->query("SELECT * FROM usuarios WHERE id = 1");
-        $data = $resultado->fetch(\PDO::FETCH_OBJ);
-        $usuario = new usuario($data); 
-        $view = new viewHelper();
-
-        $this->view->vista("index",$usuario); 
+    public function index(){        
+        //Select con OBJ
+        $resultado = $this->db->query("SELECT * FROM usuarios");
+        //Asigno la consulta a una variable
+        while ($data = $resultado->fetch(\PDO::FETCH_OBJ)){ //Recorro el resultado
+            $usuarios[] = new Usuario($data);
+        }
+        
+        //Le paso los datos
+        $this->view->vista("usuarios",$usuarios);
         
     }
+    
+    public function salir(){
+        $_SESSION['usuario'] = "";
+        header("location: ".$_SESSION['home']."panel");
+        $this->acceso();
+    }
+    
     
 }
 

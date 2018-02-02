@@ -5,6 +5,7 @@ use App\Controller\usuarioController;
 $public = '/cms/public/';
 require('../view/partials/header.php');
 $home = '/cms/public/index.php/';
+$_SESSION['home'] = $home;
 $ruta = str_replace($home, '',$_SERVER['REQUEST_URI']);
 
 //Defino la función que autocargará la clase cuando se instancie
@@ -34,11 +35,19 @@ function autoload($clase,$dir=null) {
 
 }
 
-if ($ruta == 'panel'){
-    $controller =  new usuarioController;
-    
-    $controller->acceso();
-            
+switch ($ruta){
+    case 'panel':
+        $controller =  new usuarioController;
+        $controller->acceso();
+        break;
+    case 'panel/salir':
+        $controller =  new usuarioController;
+        $controller->salir();
+        break;
+    case 'panel/usuarios':
+        $controller =  new usuarioController;
+        $controller->index();
+        break;
 }
 
 require('../view/partials/footer.php');

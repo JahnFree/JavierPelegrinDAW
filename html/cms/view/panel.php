@@ -1,4 +1,3 @@
-<div class="contenedor1">
-    <?php echo $datos->usuario ?>
-</div>
-
+<?php
+require('../view/partials/menu.php');
+?>
