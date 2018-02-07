@@ -48,6 +48,10 @@ switch ($ruta){
         $controller =  new usuarioController;
         $controller->index();
         break;
+    case 'panel/usuarios/crear':
+        $controller =  new usuarioController;
+        $controller->crear();
+        break;
 }
 
 require('../view/partials/footer.php');

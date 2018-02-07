@@ -5,3 +5,4 @@
   <li><a href="<?php echo $_SESSION['home'] ?>panel/salir">Salir</a></li>
   <h3 class="saludo">Hola <?php echo $_SESSION['usuario'] ?></h3>
 </ul>
+

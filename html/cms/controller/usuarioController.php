@@ -68,6 +68,22 @@ class usuarioController {
         $this->acceso();
     }
     
+    public function crear(){        
+      
+        $nombre = "usuario".rand(1000, 9999);
+        $registros = $this->db->exec('INSERT INTO usuarios (usuario) VALUES ("'.$nombre.'")');
+        if($registros){
+            $mensaje[] = ['tipo'=>'succes',
+                        'texto'=>'El usuario'.$nombre.'se ha añadido correctamente'];
+        }else{
+           $mensaje[] = ['tipo'=>'danger',
+                        'texto'=>'Ha ocurrido un error al añadir el usuario']; 
+        }
+        $_SESSION['mensajes'] = $mensaje;
+         header("location: ".$_SESSION['home']."panel/usuarios");
+        
+    }
+    
     
 }
 

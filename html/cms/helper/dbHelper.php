@@ -8,7 +8,7 @@ class dbHelper {
         try {
             $this->db = new \PDO('mysql:host=localhost;dbname=cns', 'cns', 'amazon177', $opciones);
             $this->db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-        } catch (PDOException $e) {
+        } catch (\PDOException $e) {
             echo 'Falló la conexión: ' . $e->getMessage();
         }
     }
