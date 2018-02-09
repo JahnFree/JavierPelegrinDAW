@@ -1,10 +1,7 @@
-
-<?php 
+<?php    
     require('../view/partials/menu.php');
     require('../view/partials/mensajes.php');
 ?>
-
-
 <div class="tablaUsuarios">   
     <div class="titulos">
         <label class="titulo1">USUARIO</label>
@@ -19,14 +16,18 @@
                 </a>    
             </div>
             <div class="acciones">
-                <a class="accion1" href="">editar</a>
+                <?php $ruta = $_SESSION['home']."panel/usuarios/editar/".$dato->id ?>
+                <a class="accion1" href="<?php echo $ruta ?>">editar</a>
+                
                 <?php $color = ($dato->activo == 1) ? 'activo' : 'inactivo'; ?>
                 <?php $texto = ($dato->activo == 1) ? 'desactivar' : 'activar'; ?>
                 <?php $ruta = $_SESSION['home']."panel/usuarios/".$texto."/".$dato->id ?>
                 <a class="<?php echo $color ?>" id="accion1" href="<?php echo $ruta ?>" title="<?php echo $texto ?>">
                     <span class="far fa-check-square"></span>
                 </a>
-                <a class="accion1" href="">borrar</a>
+                
+                <?php $ruta = $_SESSION['home']."panel/usuarios/borrar"."/".$dato->id ?>
+                <a class="accion1" href="<?php echo $ruta ?>" title="borrar">borrar</a>
             </div>
         </div>    
     <?php } ?>    

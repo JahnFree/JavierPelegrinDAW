@@ -19,6 +19,7 @@ class usuario{
         $this->fecha_acceso = $data->fecha_acceso;
         $this->activo = $data->activo;
         $this->usuarios = $data->usuarios;
+        $this->noticias = $data->noticias;
         
     }
 }

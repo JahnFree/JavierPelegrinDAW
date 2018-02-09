@@ -1,5 +1,5 @@
 <?php
-require ('conexion.php');
+require ('conexiona.php');
 
 //Insert
 $resultado = $db->query('INSERT INTO personas (nombre) VALUES ("José"),("Luís")');

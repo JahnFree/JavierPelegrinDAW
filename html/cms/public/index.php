@@ -34,24 +34,64 @@ function autoload($clase,$dir=null) {
     }
 
 }
+$array_ruta = explode("/", $ruta);
 
-switch ($ruta){
-    case 'panel':
-        $controller =  new usuarioController;
-        $controller->acceso();
-        break;
-    case 'panel/salir':
-        $controller =  new usuarioController;
-        $controller->salir();
-        break;
-    case 'panel/usuarios':
-        $controller =  new usuarioController;
+if(count($array_ruta) == 4){
+    if($array_ruta[0].$array_ruta[1] == "panelusuarios"){
+        if($array_ruta[2] == "editar" OR $array_ruta[2] == "borrar" OR $array_ruta[2] == "activar" OR $array_ruta[2] == "desactivar"){
+            $controller =  new usuarioController;
+            $accion = $array_ruta[2];
+            $id = $array_ruta[3];
+            $controller->$accion($id);
+        }else{
+            $controller =  new appController;
+            $controller->index();
+        }
+ 
+    }else if ($array_ruta[0].$array_ruta[1] == "panelnoticias"){
+        if($array_ruta[2] == "editar" OR $array_ruta[2] == "borrar" OR $array_ruta[2] == "activar" OR $array_ruta[2] == "desactivar"){
+            $controller =  new noticiaController;
+            $accion = $array_ruta[2];
+            $id = $array_ruta[3];
+            $controller->$accion($id);
+        }else{
+            $controller =  new appController;
+            $controller->index();
+        }
+    }else{
+        $controller =  new appController;
         $controller->index();
-        break;
-    case 'panel/usuarios/crear':
-        $controller =  new usuarioController;
-        $controller->crear();
-        break;
+    }
+}else{
+
+    switch ($ruta){
+        case 'panel':
+            $controller =  new usuarioController;
+            $controller->acceso();
+            break;
+        case 'panel/salir':
+            $controller =  new usuarioController;
+            $controller->salir();
+            break;
+        case 'panel/usuarios':
+            $controller =  new usuarioController;
+            $controller->index();
+            break;
+        case 'panel/usuarios/crear':
+            $controller =  new usuarioController;
+            $controller->crear();
+            break;
+        case 'panel/noticias':
+            $controller =  new noticiaController;
+            $controller->index();
+            break;
+        case 'panel/noticias/crear':
+            $controller =  new noticiaController;
+            $controller->crear();
+            break;
+        default: $controller =  new appController;
+                 $controller->crear();
+    }
 }
 
 require('../view/partials/footer.php');

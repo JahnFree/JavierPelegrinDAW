@@ -8,11 +8,49 @@
     text-decoration: none;
 }
 
+.activo:hover{
+    color: red;
+    text-decoration: none;
+}
+
+.inactivo:hover{
+    color: green;
+    text-decoration: none;
+}
+
+.contenedor_editar{
+    float:left;
+    width: 23%;
+    background-color: white;
+    padding: 2%;
+    position: relative;
+    left: 40%;
+    top: 100px;
+}
+
+.alert-danger{
+    width: 30%;
+    color: white;
+    background-color: red;
+    padding: 1%;
+    margin: auto;
+    position: relative;
+    top: 80px;
+}
+.alert-succes{
+    width: 30%;
+    color: white;
+    background-color: green;
+    padding: 1%;
+    margin: auto;
+    position: relative;
+    top: 80px;
+}
+
 body{
     margin: auto;
     text-align:center;
     background-image: url("../img/fondo.gif");
-    
     background-position:center;
     margin: 0;
     margin-bottom: 40px;  
